@@ -32,9 +32,11 @@ Recipe.create({
 Recipe.insertMany(data)
   .then(recipe => {
     console.log(`Recipe saved: ${recipe}`);
+    mongoose.connection.close()
   })
   .catch(err => {
     console.log(`An error happened: ${err}`);
+    mongoose.connection.close()
   });
    */
 
@@ -42,17 +44,22 @@ Recipe.insertMany(data)
 Recipe.updateOne({title: 'Rigatoni alla Genovese'}, {duration: 100})
   .then(recipe => {
       console.log(`Recipe updated: "${recipe}" now has duration: ${recipe}`);
+      mongoose.connection.close()
   })
   .catch(err => {
     console.log(`An error happened: ${err}`);
+    mongoose.connection.close()
   });
   */
 
-/* Iteration 5 - Remove a recipe */
-Recipe.deleteOne({title: 'Carrot Cake'})
+/* Iteration 5 - Remove a recipe 
+Recipe.deleteOne({title: 'Delicious Copy Pasta'})
   .then(recipe => {
-    console.log(`Recipe deleted: "${recipe}"`);
+    console.log(`Recipe deleted: ${recipe}`);
+    mongoose.connection.close()
   })
   .catch(err => {
     console.log(`An error happened: ${err}`);
+    mongoose.connection.close()
   });
+  */
